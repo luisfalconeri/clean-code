@@ -21,7 +21,7 @@ def get_path_part(sFilename):
     return dirName
 
 # access_log
-def getFilenamePart(sFilename):
+def get_filename_part(sFilename):
     try:
         int(sFilename.rindex('/'))
     except:
@@ -33,7 +33,7 @@ def getFilenamePart(sFilename):
 
 
 #.png
-def getEndOfFile(sFilename):
+def get_end_of_file(sFilename):
     try:
         occurrences = [m.start() for m in re.finditer('\.', sFilename)]
         return sFilename[occurrences[-1] + 1:]
@@ -47,10 +47,10 @@ assert(get_path_part("log/cups/access_log") == "log/cups/")
 assert(get_path_part("log/cups/") == "log/cups/")
 assert(get_path_part("cups/access_log") == "cups/")
 assert(get_path_part("access_log") == "")
-assert(getFilenamePart("log/cups/access_log") == "access_log")
-assert(getFilenamePart("log/cups/") == "")
-assert(getFilenamePart("cups/access_log") == "access_log")
-assert(getFilenamePart("access_log") == "access_log")
-assert(getEndOfFile("log/cups/access_log") == "")
-assert(getEndOfFile("base/FileHelper.cpp") == "cpp")
-assert(getEndOfFile("base/FileHelper.cpp.bak") == "bak")
+assert(get_filename_part("log/cups/access_log") == "access_log")
+assert(get_filename_part("log/cups/") == "")
+assert(get_filename_part("cups/access_log") == "access_log")
+assert(get_filename_part("access_log") == "access_log")
+assert(get_end_of_file("log/cups/access_log") == "")
+assert(get_end_of_file("base/FileHelper.cpp") == "cpp")
+assert(get_end_of_file("base/FileHelper.cpp.bak") == "bak")
